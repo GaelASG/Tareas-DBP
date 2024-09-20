@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="formulario.css">
+    <title>Formulario</title>
+</head>
+<body>
+    <div class="page">
+        <div class="header">
+            <h1>Formulario de Información Personal</h1>
+        </div> 
+        <br>
+        <form action="procesar_formulario.php" method="POST">
+			<form action="procesar_formulario.php" method="POST">
+
+            <label for="nombre_apellidos">Nombre y Apellidos:</label>
+            <input type="text" id="nombre_apellidos" name="nombre_apellidos" required><br><br>
+
+            <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+            <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required><br><br>
+
+            <label for="ocupacion">Ocupación:</label>
+            <input type="text" id="ocupacion" name="ocupacion" required><br><br>
+
+            <label for="contacto">Contacto (teléfono, email):</label>
+            <input type="text" id="contacto" name="contacto" required><br><br>
+
+            <label for="nacionalidad">Nacionalidad:</label>
+            <select id="nacionalidad" name="nacionalidad">
+                <option value="Peru">Perú</option>
+                <option value="Argentina">Argentina</option>
+                <option value="Colombia">Colombia</option>
+                <option value="Chile">Chile</option>
+                <option value="Ecuador">Ecuador</option>
+                <option value="México">México</option>
+                <option value="España">España</option>
+                <option value="Estados Unidos">Estados Unidos</option>
+                <option value="Canadá">Canadá</option>
+                <option value="Brasil">Brasil</option>
+            </select><br><br>
+
+			<label for="educacion">Nivel de Educación:</label>
+				<select id="educacion" name="educacion">
+			    <option value="Educación preescolar">Educación Preescolar</option>
+				<option value="Educación primaria">Educación Primaria</option>
+				<option value="Educación secundaria">Educación Secundaria</option>
+				<option value="Educación de posgrado">Educación de Posgrado</option>
+				<option value="Formación continua">Formación Continua</option>
+				<option value="Situacion especial">Situacion Especial</option>
+				</select><br><br>
+
+			<label>Idiomas:</label><br>
+				<input type="checkbox" id="ingles" name="idiomas[]" value="Inglés">
+				<label for="ingles">Inglés</label><br>
+
+				<input type="checkbox" id="indonesio" name="idiomas[]" value="Indonesio">
+				<label for="indonesio">Indonesio</label><br>
+
+				<input type="checkbox" id="chino_tradicional" name="idiomas[]" value="Chino Tradicional">
+				<label for="chino_tradicional">Chino Tradicional</label><br>
+
+				<input type="checkbox" id="chino_simplificado" name="idiomas[]" value="Chino Simplificado">
+				<label for="chino_simplificado">Chino Simplificado</label><br>
+
+				<input type="checkbox" id="portugues" name="idiomas[]" value="Portugués">
+				<label for="portugues">Portugués</label><br>
+
+				<input type="checkbox" id="frances" name="idiomas[]" value="Francés">
+				<label for="frances">Francés</label><br><br>
+
+			</select><br><br>
+
+            <label for="lenguajes_programacion">Lenguajes de Programación:</label>
+            <select id="lenguajes_programacion" name="lenguajes_programacion[]" >
+                <option value="java">Java</option>
+                <option value="python">Python</option>
+                <option value="javascript">JavaScript</option>
+                <option value="c++">C++</option>
+            </select><br><br>
+
+            <label for="aptitudes">Aptitudes:</label>
+            <input list="aptitudes" name="aptitudes">
+            <datalist id="aptitudes">
+                <option value="Pensamiento analittico">
+                <option value="Innovacion">
+                <option value="inteligencia emocionnal">
+            </datalist><br><br>
+
+			<label>Habilidades:</label><br>
+				<input type="checkbox" id="liderazgo" name="habilidades[]" value="Liderazgo">
+				<label for="liderazgo">Liderazgo</label><br>
+
+				<input type="checkbox" id="programacion_cpp" name="habilidades[]" value="Programación C++">
+				<label for="programacion_cpp">Programación C++</label><br>
+
+				<input type="checkbox" id="empatia" name="habilidades[]" value="Empatía">
+				<label for="empatia">Empatía</label><br><br>
+				</select><br><br>
+
+			<label for="perfil">Experiencia Laboral</label><br>
+            <textarea id="perfil" name="perfil" rows="4" cols="50"></textarea><br><br>
+
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+</body>
+</html>
+
