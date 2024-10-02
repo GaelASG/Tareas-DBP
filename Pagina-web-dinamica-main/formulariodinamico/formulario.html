@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario</title>
+</head>
+<body>
+    <div class="page">
+        <div class="header">
+            <h1>Formulario de Información Personal</h1>
+        </div> 
+        <br>
+        <form id="cvForm" action="procesar_formulario.php" method="POST">
+            <label for="nombre_apellidos">Nombre y Apellidos:</label><br>
+            <input type="text" id="nombre_apellidos" name="nombre_apellidos" required><br><br>
+
+            <label for="fecha_nacimiento">Fecha de Nacimiento:</label><br>
+            <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required><br><br>
+
+            <label for="ocupacion">Ocupación:</label><br>
+            <input type="text" id="ocupacion" name="ocupacion" required><br><br>
+
+            <label for="contacto">Contacto (teléfono, email):</label><br>
+            <input type="text" id="contacto" name="contacto" required><br><br>
+
+            <label for="nacionalidad">Nacionalidad:</label><br>
+            <select id="nacionalidad" name="nacionalidad">
+                <option value="Peru">Perú</option>
+                <option value="Argentina">Argentina</option>
+                <option value="Colombia">Colombia</option>
+                <option value="Chile">Chile</option>
+                <option value="Ecuador">Ecuador</option>
+                <option value="México">México</option>
+                <option value="España">España</option>
+                <option value="Estados Unidos">Estados Unidos</option>
+                <option value="Canadá">Canadá</option>
+                <option value="Brasil">Brasil</option>
+            </select><br><br>
+
+            <!-- Otros campos del formulario -->
+            <label for="aptitudes">Aptitudes:</label><br>
+            <input type="text" id="aptitudes" name="aptitudes"><br><br>
+
+            <label for="perfil">Perfil:</label><br>
+            <textarea id="perfil" name="perfil" rows="4" cols="50"></textarea><br><br>
+
+            <input type="submit" value="Enviar">
+        </form>
+
+        <!-- Div para mostrar mensajes de éxito o error -->
+        <div id="mensaje"></div>
+
+        <!-- Script para manejar el envío del formulario de forma dinámica -->
+        <script>
+            document.getElementById("cvForm").addEventListener("submit", function(event) {
+                event.preventDefault(); // Evitar el envío por defecto
+                var formData = new FormData(this);
+
+                // Enviar los datos del formulario mediante AJAX
+                fetch('procesar_formulario.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.text())
+                .then(data => {
+                    // Mostrar el mensaje de éxito o error en el div "mensaje"
+                    document.getElementById("mensaje").innerHTML = data;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            });
+        </script>
+    </div>
+</body>
+</html>
