@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>TODO List</title>
+  </head>
+  <body>
+    <h1>TODO List</h1>
+    <form id="new-task">
+      <input id="task" autocomplete="off" autofocus placeholder="New Task" type="text">
+      <button type="submit">Add Todo</button>
+    </form>
+    <button id="complete-all">Complete All</button>
+    <ul id="tasks">
+    </ul>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        document.querySelector('#new-task').onsubmit = (event) => {
+          event.preventDefault();
+
+          const taskText = document.querySelector('#task').value.trim();
+
+          if (taskText !== '') {
+            const li = document.createElement('li');
+            const checkbox = document.createElement("input");
+            checkbox.setAttribute("type", "checkbox");
+
+            const label = document.createElement("label");
+            label.appendChild(checkbox);
+            label.appendChild(document.createTextNode(taskText));
+
+            // Botón para eliminar laas tareas al lado de las mismas
+            const deleteButton = document.createElement("button");
+            deleteButton.innerHTML = 'X';
+            deleteButton.addEventListener('click', () => {
+              li.remove(); // Eliminar la tarea al hacer clic en la X 
+            });
+
+            li.appendChild(label);
+            li.appendChild(deleteButton);
+
+            document.querySelector('#tasks').appendChild(li);
+
+            document.querySelector('#task').value = '';
+          }
+        };
+
+        document.querySelector('#tasks').addEventListener('change', (event) => {
+          if (event.target.type === 'checkbox') {
+            const label = event.target.parentNode;
+            label.style.textDecoration = event.target.checked ? 'line-through' : 'none';
+          }
+        });
+
+        document.querySelector('#complete-all').addEventListener('click', () => {
+          const checkboxes = document.querySelectorAll('#tasks input[type="checkbox"]');
+          checkboxes.forEach((checkbox) => {
+            checkbox.checked = true;
+            const label = checkbox.parentNode;
+            label.style.textDecoration = 'line-through';
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
