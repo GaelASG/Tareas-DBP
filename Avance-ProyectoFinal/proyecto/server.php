@@ -26,7 +26,7 @@ $password = $_POST["psw"];
 $rPass = $_POST["psw-repeat"];
 
 if ($password != $rPass) {
-    die('Las contraseñas no coinciden <br><br><a href="prieba.html">Volver</a>');
+    die('Las contraseñas no coinciden <br><br><a href="prueba.html">Volver</a>');
 }
 
 $instruccion_SQL = "INSERT INTO usuario (nombre, correo, contrasena) VALUES ('$nombre','$email','$password')";
